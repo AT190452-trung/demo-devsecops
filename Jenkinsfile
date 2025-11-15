@@ -2,9 +2,12 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
-                echo "✅ Source code ready in Jenkins workspace"
+                git branch: 'main',
+                    url: 'https://github.com/anhtrung/demo-devsecops.git',
+                    credentialsId: 'github-token'
             }
         }
 
@@ -89,6 +92,5 @@ pipeline {
         }
     }
 }
-
 
 
